@@ -3,6 +3,7 @@ cd $(dirname $(dirname $0)) || exit
 
 ./scripts/initialize
 docker-compose down
-docker-compose up -d --build base site celery bridged wsevent
+docker-compose build
+docker-compose up -d
 ./scripts/migrate
 ./scripts/copy_static
