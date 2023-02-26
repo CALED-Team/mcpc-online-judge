@@ -34,7 +34,7 @@ jobs:
             cd mcpc-online-judge
             cd repo/.. || git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
             cd repo/ || exit
-            rm -rf dmoj/repo
+            sudo rm -rf dmoj/repo
             
             git pull
             git submodule update --init --recursive
