@@ -1,0 +1,8 @@
+#!/bin/bash
+cd $(dirname $(dirname $0)) || exit
+
+./scripts/initialize
+docker-compose down
+docker-compose up -d --build base site celery bridged wsevent
+./scripts/migrate
+./scripts/copy_static

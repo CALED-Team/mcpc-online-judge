@@ -54,8 +54,8 @@ DATABASES = {
 
 # Internationalization.
 # Documentation: <https://docs.djangoproject.com/en/1.11/topics/i18n/>
-LANGUAGE_CODE = 'en-ca'
-DEFAULT_USER_TIME_ZONE = 'America/Toronto'
+LANGUAGE_CODE = 'en-au'
+DEFAULT_USER_TIME_ZONE = 'Australia/Melbourne'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -82,13 +82,11 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 # Use this if you are just testing.
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# The following block is included for your convenience, if you want 
-# to use Gmail.
-#EMAIL_USE_TLS = True
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = '<your account>@gmail.com'
-#EMAIL_HOST_PASSWORD = '<your password>'
-#EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mcpc.club'
+EMAIL_HOST_USER = 'postman@mcpc.club'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
+EMAIL_PORT = 465
 
 # To use Mailgun, uncomment this block.
 # You will need to run `pip install django-mailgun` for to get `MailgunBackend`.
@@ -108,7 +106,7 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 ADMINS = ()
 
 # The sender for the aforementioned emails.
-SERVER_EMAIL = 'DMOJ: Modern Online Judge <errors@dmoj.ca>'
+SERVER_EMAIL = 'MCPC Judge <postman@mcpc.club>'
 
 
 ##################################################
@@ -133,9 +131,9 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 ############################################
 
 ## DMOJ site display settings.
-SITE_NAME = 'DMOJ'
-SITE_LONG_NAME = 'DMOJ: Modern Online Judge'
-SITE_ADMIN_EMAIL = 'admin@example.com'
+SITE_NAME = 'MCPC'
+SITE_LONG_NAME = 'Monash Competitive Programming Team'
+SITE_ADMIN_EMAIL = 'mcpc@caled.com.au'
 TERMS_OF_SERVICE_URL = None
 
 ## Bridge controls.
@@ -286,7 +284,7 @@ LOGGING = {
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
 
-REGISTRATION_OPEN = False
+REGISTRATION_OPEN = True
 DMOJ_RATING_COLORS = True
 X_FRAME_OPTIONS = 'DENY'
 
