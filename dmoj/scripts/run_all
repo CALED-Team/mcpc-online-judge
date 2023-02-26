@@ -8,4 +8,4 @@ docker-compose down
 docker-compose build
 docker-compose up -d
 docker-compose exec site python3 manage.py migrate
-#./scripts/copy_static
+./scripts/copy_static
