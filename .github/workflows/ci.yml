@@ -35,10 +35,12 @@ jobs:
             cd repo/.. || git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
             cd repo/ || exit
             git pull
+            git submodule update --init --recursive
+            
             rm dmoj/environment/*
             echo '${{ secrets.ENV_MYSQL }}' | base64 -d > dmoj/environment/mysql.env
             echo '${{ secrets.ENV_MYSQL_ADMIN }}' | base64 -d > dmoj/environment/mysql-admin.env
             echo '${{ secrets.ENV_SITE }}' | base64 -d > dmoj/environment/site.env
             
             cd dmoj || exit
-            ./scripts/run_all
+            sudo ./scripts/run_all
