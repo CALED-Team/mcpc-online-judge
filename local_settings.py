@@ -82,6 +82,7 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 # Use this if you are just testing.
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'premium28.web-hosting.com'
 EMAIL_HOST_USER = 'postman@mcpc.club'
