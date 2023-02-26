@@ -85,6 +85,7 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY', '')
+AWS_SES_REGION_NAME = 'ap-southeast-2'
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
 DEFAULT_FROM_EMAIL = 'Monash Competitive Programming <postman@mcpc.club>'
