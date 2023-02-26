@@ -1,0 +1,7 @@
+database
+problems
+media
+*.env.prod
+.python-version
+__pycache__
+.idea
