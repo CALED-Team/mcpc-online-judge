@@ -1,9 +1,11 @@
 #!/bin/bash
 cd $(dirname $(dirname $0)) || exit
 
+mkdir -p logs
+
 ./scripts/initialize
 docker-compose down
 docker-compose build
 docker-compose up -d
-./scripts/migrate
+docker-compose exec $COMPOSE_EXEC_FLAGS site python3 manage.py migrate
 ./scripts/copy_static
