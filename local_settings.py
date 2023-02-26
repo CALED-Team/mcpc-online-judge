@@ -83,10 +83,11 @@ STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'mcpc.club'
+EMAIL_HOST = 'premium28.web-hosting.com'
 EMAIL_HOST_USER = 'postman@mcpc.club'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
 EMAIL_PORT = 465
+DEFAULT_FROM_EMAIL = 'Monash Competitive Programming <postman@mcpc.club>'
 
 # To use Mailgun, uncomment this block.
 # You will need to run `pip install django-mailgun` for to get `MailgunBackend`.
