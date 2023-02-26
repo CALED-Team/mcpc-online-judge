@@ -7,5 +7,5 @@ mkdir -p logs
 docker-compose down
 docker-compose build
 docker-compose up -d
-docker-compose exec $COMPOSE_EXEC_FLAGS site python3 manage.py migrate
+docker-compose exec site python3 manage.py migrate
 ./scripts/copy_static
