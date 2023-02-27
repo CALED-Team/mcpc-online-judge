@@ -1,6 +1,7 @@
 database
 problems
 media
+data
 *.env.prod
 .python-version
 __pycache__
