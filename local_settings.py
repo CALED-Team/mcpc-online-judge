@@ -16,10 +16,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', '0') == '1'
 HOST = os.environ.get('HOST', '')
+ADDITIONAL_HOSTS = os.environ.get('ADDITIONAL_HOSTS', None)
 
 # Uncomment and set to the domain names this site is intended to serve.
 # You must do this once you set DEBUG to False.
 ALLOWED_HOSTS = [HOST]
+if ADDITIONAL_HOSTS:
+    ALLOWED_HOSTS += ADDITIONAL_HOSTS.split(',')
 
 # Optional apps that DMOJ can make use of.
 INSTALLED_APPS += ()
