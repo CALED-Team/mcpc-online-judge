@@ -91,7 +91,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY', '')
 AWS_SES_REGION_NAME = 'ap-southeast-2'
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
-DEFAULT_FROM_EMAIL = 'Monash Competitive Programming <postman@mcpc.club>'
+DEFAULT_FROM_EMAIL = 'Monash APS Judge <judge@monashaps.com>'
 
 # To use Mailgun, uncomment this block.
 # You will need to run `pip install django-mailgun` for to get `MailgunBackend`.
@@ -111,7 +111,7 @@ DEFAULT_FROM_EMAIL = 'Monash Competitive Programming <postman@mcpc.club>'
 ADMINS = ()
 
 # The sender for the aforementioned emails.
-SERVER_EMAIL = 'MCPC Judge <postman@mcpc.club>'
+SERVER_EMAIL = 'MAPS Judge <judge@monashaps.com>'
 
 
 ##################################################
@@ -136,9 +136,9 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 ############################################
 
 ## DMOJ site display settings.
-SITE_NAME = 'MCPC'
-SITE_LONG_NAME = 'Monash Competitive Programming Team'
-SITE_ADMIN_EMAIL = 'mcpc@caled.com.au'
+SITE_NAME = 'Monash APS Judge'
+SITE_LONG_NAME = 'Monash Algorithms and Problem Solving Team'
+SITE_ADMIN_EMAIL = 'admin@monashaps.com'
 TERMS_OF_SERVICE_URL = None
 
 ## Bridge controls.
