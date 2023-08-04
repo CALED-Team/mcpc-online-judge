@@ -32,7 +32,8 @@ jobs:
           script: |
             mkdir -p mcpc-online-judge
             cd mcpc-online-judge
-            cd repo/.. || git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
+            rm -rf repo
+            git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
             cd repo/ || exit
 
             rm dmoj/environment/*
