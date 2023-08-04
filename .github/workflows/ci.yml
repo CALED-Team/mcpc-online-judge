@@ -32,7 +32,7 @@ jobs:
           script: |
             mkdir -p mcpc-online-judge
             cd mcpc-online-judge
-            rm -rf repo
+            sudo rm -rf repo
             git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
             cd repo/ || exit
 
