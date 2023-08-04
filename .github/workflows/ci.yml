@@ -33,7 +33,7 @@ jobs:
             mkdir -p mcpc-online-judge
             cd mcpc-online-judge
             sudo rm -rf repo
-            git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
+            git clone https://github.com/CALED-Team/mcpc-online-judge.git repo --recurse-submodules
             cd repo/ || exit
 
             rm dmoj/environment/*
