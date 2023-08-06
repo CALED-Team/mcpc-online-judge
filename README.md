@@ -126,3 +126,7 @@ cd dmoj
 ./scripts/init-letsencrypt.sh
 sudo docker-compose up -d
 ```
+
+If the file fails saying "The Certificate Authority failed to download the temporary challenge files created by Certbot"
+you probably need to remove any blocks from the nginx conf that require the SSL certs. Once the challenge passes you can
+add the blocks back in and restart compose.
