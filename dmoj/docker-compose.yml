@@ -5,7 +5,7 @@ services:
     image: mariadb:10.3.24
     restart: always
     volumes:
-      - ./database/:/var/lib/mysql/
+      - database:/var/lib/mysql/
     env_file: [environment/mysql.env, environment/mysql-admin.env]
     networks: [db]
   redis:
@@ -112,8 +112,8 @@ services:
       - cache:/cache/
       - ./media/:/media/
       - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
-      - ./data/certbot/www:/var/www/certbot:ro
-      - ./data/certbot/conf:/etc/letsencrypt:ro
+      - certbot_www:/var/www/certbot:ro
+      - certbot_conf:/etc/letsencrypt:ro
     networks: [nginx]
     depends_on: [site, wsevent]
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
@@ -122,8 +122,8 @@ services:
     image: certbot/certbot
     restart: unless-stopped
     volumes:
-      - ./data/certbot/www:/var/www/certbot:rw
-      - ./data/certbot/conf:/etc/letsencrypt:rw
+      - certbot_www:/var/www/certbot:rw
+      - certbot_conf:/etc/letsencrypt:rw
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
 networks:
@@ -135,3 +135,6 @@ volumes:
   pdfcache:
   datacache:
   cache:
+  database:
+  certbot_www:
+  certbot_conf:

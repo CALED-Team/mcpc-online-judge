@@ -32,7 +32,7 @@ jobs:
           script: |
             mkdir -p mcpc-online-judge
             cd mcpc-online-judge
-            cd repo/.. || git clone https://github.com/CALED-Team/mcpc-online-judge.git repo --recurse-submodules
+            cd repo/.. || git clone https://github.com/CALED-Team/mcpc-online-judge.git repo
             cd repo/ || exit
             sudo rm -rf dmoj/repo
 
