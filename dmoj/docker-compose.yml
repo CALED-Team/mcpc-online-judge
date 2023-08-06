@@ -112,8 +112,8 @@ services:
       - cache:/cache/
       - ./media/:/media/
       - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
-      - certbot_www:/var/www/certbot:ro
-      - certbot_conf:/etc/letsencrypt:ro
+      - ./data/certbot/www:/var/www/certbot:ro
+      - ./data/certbot/conf:/etc/letsencrypt:ro
     networks: [nginx]
     depends_on: [site, wsevent]
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
@@ -122,8 +122,8 @@ services:
     image: certbot/certbot
     restart: unless-stopped
     volumes:
-      - certbot_www:/var/www/certbot:rw
-      - certbot_conf:/etc/letsencrypt:rw
+      - ./data/certbot/www:/var/www/certbot:rw
+      - ./data/certbot/conf:/etc/letsencrypt:rw
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
 networks:
@@ -136,5 +136,3 @@ volumes:
   datacache:
   cache:
   database:
-  certbot_www:
-  certbot_conf:
