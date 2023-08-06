@@ -57,6 +57,18 @@ $ docker-compose up -d
 
 ## Notes
 
+### Creating a superuser
+
+Don't directly run `manage.py createsuperuser` as this will not create a profile for the user and won't allow them to login.
+Create an account manually and activate it. Then open the shell and convert the user to superuser:
+```shell
+from django.contrib.auth.models import User
+admin = User.objects.first()
+admin.is_staff = True
+admin.is_superuser = True
+admin.save()
+```
+
 ### Migrating
 As the DMOJ site is a Django app, you may need to migrate whenever you update. Assuming the site container is running, running the following command should suffice:
 ```sh
