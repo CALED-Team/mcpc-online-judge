@@ -216,8 +216,6 @@ DMOJ_PDF_PROBLEM_CACHE = '/pdfcache'
 # Should be an internal location mapped to the above directory.
 DMOJ_PDF_PROBLEM_INTERNAL = '/pdfcache'
 
-USE_SELENIUM = True
-
 DMOJ_USER_DATA_DOWNLOAD = True
 DMOJ_USER_DATA_CACHE = '/datacache'
 DMOJ_USER_DATA_INTERNAL = '/datacache'
@@ -229,6 +227,12 @@ DMOJ_USER_DATA_INTERNAL = '/datacache'
 MATHOID_URL = 'http://mathoid:10044'
 MATHOID_CACHE_ROOT = '/cache/mathoid/'
 MATHOID_CACHE_URL = '//{host}/mathoid/'.format(host=HOST)
+
+############
+## Pdfoid ##
+############
+
+DMOJ_PDF_PDFOID_URL = 'http://pdfoid:8888'
 
 ############
 ## Texoid ##

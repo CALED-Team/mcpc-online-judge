@@ -18,13 +18,25 @@ services:
       context: .
       dockerfile: ./texoid/Dockerfile
     image: ninjaclasher/dmoj-texoid
+    init: true
     restart: unless-stopped
     networks: [site]
+  pdfoid:
+    build:
+      context: .
+      dockerfile: ./pdfoid/Dockerfile
+    image: ninjaclasher/dmoj-pdfoid
+    init: true
+    restart: unless-stopped
+    networks: [ site ]
+    cap_add:
+      - SYS_ADMIN
   mathoid:
     build:
       context: .
       dockerfile: ./mathoid/Dockerfile
     image: ninjaclasher/dmoj-mathoid
+    init: true
     restart: unless-stopped
     volumes:
       - ./mathoid/config.yaml:/node_modules/mathoid/config.yaml
@@ -42,6 +54,7 @@ services:
       context: .
       dockerfile: ./site/Dockerfile
     image: ninjaclasher/dmoj-site
+    init: true
     restart: unless-stopped
     volumes:
       - assets:/assets/
@@ -61,8 +74,10 @@ services:
       context: .
       dockerfile: ./celery/Dockerfile
     image: ninjaclasher/dmoj-celery
+    init: true
     restart: unless-stopped
     volumes:
+      - pdfcache:/pdfcache/
       - datacache:/datacache/
       - ./repo/:/site/
     working_dir: /site/
@@ -75,8 +90,10 @@ services:
       context: .
       dockerfile: ./bridged/Dockerfile
     image: ninjaclasher/dmoj-bridged
+    init: true
     restart: unless-stopped
     volumes:
+      - pdfcache:/pdfcache/
       - ./problems/:/problems/
       - ./repo/:/site/
     working_dir: /site/
@@ -91,6 +108,7 @@ services:
       context: .
       dockerfile: ./wsevent/Dockerfile
     image: ninjaclasher/dmoj-wsevent
+    init: true
     restart: unless-stopped
     volumes:
       - ./repo/:/app/site/
